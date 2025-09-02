@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contato - Como Ler Cifras de Violão</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #6a0dad;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(106, 13, 173, 0.4);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+    }
+
+    .nav-link:hover {
+      background-color: #ffdd57;
+      color: #6a0dad;
+      transform: scale(1.1);
+    }
+
+    .top-banner {
+      position: relative;
+      background-image: url('https://www.coa.com.br/wp-content/uploads/2019/06/si%CC%81ndrome-da-visa%CC%83o-do-computador.jpg');
+      background-size: cover;
+      background-position: center 63%;
+      height: 250px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    .top-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(106, 13, 173, 0.6);
+      mix-blend-mode: multiply;
+      z-index: 0;
+    }
+
+    .top-banner h1 {
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 0 20px;
+      z-index: 1;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      flex-grow: 1;
+    }
+
+    .form-box {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .form-box h2 {
+      color: #6a0dad;
+      font-size: 2rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #444;
+    }
+
+    input,
+    textarea {
+      padding: 12px;
+      margin-bottom: 20px;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: #6a0dad;
+      outline: none;
+    }
+
+    button {
+      background-color: #6a0dad;
+      color: #fff;
+      padding: 12px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #500c9e;
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 0.9rem;
+      color: #555;
+    }
+
+    @media (max-width: 600px) {
+      .top-banner h1 {
+        font-size: 2rem;
+      }
+
+      .nav-link {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="contato.html" class="nav-link">Contato</a>
+  </nav>
+
+  <header class="top-banner">
+    <h1>Fale Conosco</h1>
+  </header>
+
+  <main class="container">
+    <section class="form-box">
+      <h2>Envie sua mensagem</h2>
+      <form action="mailto:seuemail@exemplo.com" method="POST" enctype="text/plain">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensagem">Mensagem:</label>
+        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Aprenda Violão — Levamos a sério sua privacidade e a segurança dos seus dados.</p>
+  </footer>
+
+</body>
+</html>
+
+     
+

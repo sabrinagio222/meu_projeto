@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sobre - Como Ler Cifras de Violão</title>
+  <style>
+    /* Mesmo estilo do index */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background: #6a0dad;
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(106, 13, 173, 0.4);
+      margin-bottom: 30px;
+      flex-wrap: wrap;
+    }
+
+    .nav-link {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      font-weight: 700;
+      padding: 8px 20px;
+      border-radius: 50px;
+      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      position: relative;
+    }
+
+    .nav-link:hover {
+      background-color: #ffdd57;
+      color: #6a0dad;
+      transform: scale(1.1);
+    }
+
+    .top-banner {
+      position: relative;
+      background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      height: 280px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 40px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+      overflow: hidden;
+    }
+
+    .top-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: rgba(106, 13, 173, 0.6);
+      mix-blend-mode: multiply;
+      z-index: 0;
+      transition: background-color 0.3s ease;
+    }
+
+    .top-banner h1 {
+      color: #fff;
+      font-size: 3rem;
+      font-weight: 900;
+      text-align: center;
+      padding: 0 20px;
+      z-index: 1;
+      text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+      user-select: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      flex-grow: 1;
+    }
+
+    .info-box {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 8px 20px rgba(106, 13, 173, 0.15);
+      padding: 25px 30px;
+      margin-bottom: 35px;
+      transition: transform 0.3s ease;
+    }
+
+    .info-box:hover {
+      transform: translateY(-5px);
+    }
+
+    .info-box h2 {
+      color: #6a0dad;
+      font-size: 1.9rem;
+      margin-bottom: 18px;
+      font-weight: 700;
+      border-bottom: 3px solid #ffdd57;
+      padding-bottom: 8px;
+      max-width: fit-content;
+      box-shadow: 0 4px 10px rgba(255, 221, 87, 0.6);
+      border-radius: 8px;
+    }
+
+    .info-box p {
+      font-size: 1.15rem;
+      color: #444;
+    }
+
+    footer {
+      margin-top: 50px;
+      padding: 15px 0;
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      font-weight: 600;
+      border-top: 2px solid #6a0dad;
+      letter-spacing: 0.05em;
+      user-select: none;
+    }
+
+    @media (max-width: 900px) {
+      .container {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav class="navbar">
+    <a href="index.html" class="nav-link">Início</a>
+    <a href="sobre.html" class="nav-link">Sobre</a>
+    <a href="contato.html" class="nav-link">Contato</a>
+  </nav>
+
+  <header class="top-banner">
+    <h1>Sobre o Projeto</h1>
+  </header>
+
+  <main class="container">
+    <section class="info-box">
+      <h2>Quem Somos</h2>
+      <p>
+        Este site foi criado para ajudar iniciantes a aprender a ler cifras de violão de forma simples e prática. Nosso objetivo é tornar o aprendizado acessível e divertido para todos que amam música.
+      </p>
+    </section>
+
+    <section class="info-box">
+      <h2>Nossa Missão</h2>
+      <p>
+        Promover a educação musical oferecendo conteúdos de qualidade, exemplos práticos e dicas para facilitar o entendimento e a prática do violão.
+      </p>
+    </section>
+
+    <section class="info-box">
+      <h2>Por que aprender cifras?</h2>
+      <p>
+        Ler cifras permite que você toque inúmeras músicas sem a necessidade de aprender partituras complexas, facilitando a sua jornada musical.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Tocando acordes, aprendendo com paixão. 🎶</p>
+  </footer>
+</body>
+</html>
+

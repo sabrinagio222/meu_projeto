@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Início - Como Ler Cifras de Violão</title>
+    <style>
+        /* ===== Reset básico ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* ===== Navegação ===== */
+        .navbar {
+            background: #6a0dad;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 15px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(106, 13, 173, 0.4);
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+        }
+
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 8px 20px;
+            border-radius: 50px;
+            transition: background-color 0.3s, color 0.3s, transform 0.2s;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 3px;
+            background-color: #ffdd57;
+            border-radius: 2px;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover {
+            background-color: #ffdd57;
+            color: #6a0dad;
+            transform: scale(1.1);
+        }
+
+        .nav-link:hover::after {
+            width: 60%;
+        }
+
+        /* ===== Header Banner ===== */
+        .top-banner {
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 280px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 40px;
+            box-shadow: 0 8px 15px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        .top-banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: rgba(106, 13, 173, 0.6);
+            mix-blend-mode: multiply;
+            z-index: 0;
+            transition: background-color 0.3s ease;
+        }
+
+        .top-banner h1 {
+            color: #fff;
+            font-size: 3rem;
+            font-weight: 900;
+            text-align: center;
+            padding: 0 20px;
+            z-index: 1;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+            user-select: none;
+        }
+
+        /* ===== Container Principal ===== */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            flex-grow: 1;
+        }
+
+        /* ===== Sessões info-box ===== */
+        .info-box {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 8px 20px rgba(106, 13, 173, 0.15);
+            padding: 25px 30px;
+            margin-bottom: 35px;
+            transition: transform 0.3s ease;
+        }
+
+        .info-box:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-box h2 {
+            color: #6a0dad;
+            font-size: 1.9rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+            border-bottom: 3px solid #ffdd57;
+            padding-bottom: 8px;
+            max-width: fit-content;
+            box-shadow: 0 4px 10px rgba(255, 221, 87, 0.6);
+            border-radius: 8px;
+        }
+
+        /* ===== Parágrafos ===== */
+        .info-box p, .intro p {
+            font-size: 1.15rem;
+            margin-bottom: 18px;
+            color: #444;
+        }
+
+        /* ===== Listas estilizadas ===== */
+        ul {
+            margin-left: 25px;
+            margin-bottom: 18px;
+            list-style: inside disc;
+            color: #555;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        ul li {
+            margin-bottom: 10px;
+            transition: color 0.3s ease;
+        }
+
+        ul li:hover {
+            color: #6a0dad;
+            cursor: default;
+        }
+
+        /* ===== Imagem na intro ===== */
+        .intro {
+            display: flex;
+            align-items: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+
+        .intro p {
+            flex: 1 1 350px;
+        }
+
+        .intro-img {
+            flex: 1 1 350px;
+            max-width: 100%;
+            border-radius: 20px;
+            box-shadow: 0 12px 22px rgba(106, 13, 173, 0.3);
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .intro-img:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 16px 28px rgba(106, 13, 173, 0.6);
+        }
+
+        /* ===== Cifra exemplo ===== */
+        .cifra-exemplo {
+            background-color: #fefefe;
+            border: 3px solid #6a0dad;
+            border-radius: 18px;
+            padding: 20px 30px;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1.3rem;
+            color: #6a0dad;
+            box-shadow: 0 8px 15px rgba(106, 13, 173, 0.25);
+            white-space: pre-wrap;
+            user-select: text;
+            transition: box-shadow 0.3s ease;
+        }
+
+        .cifra-exemplo:hover {
+            box-shadow: 0 12px 22px rgba(106, 13, 173, 0.6);
+        }
+
+        .acorde {
+            font-weight: 900;
+        }
+
+        /* ===== Rodapé ===== */
+        footer {
+            margin-top: 50px;
+            padding: 15px 0;
+            text-align: center;
+            color: #555;
+            font-size: 1rem;
+            font-weight: 600;
+            border-top: 2px solid #6a0dad;
+        }
+
+        /* ===== Mensagem de Privacidade ===== */
+        .privacy {
+            margin-top: 15px;
+            font-size: 0.9rem;
+            color: #888;
+            text-align: center;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navegação -->
+    <nav class="navbar">
+        <a href="index.html" class="nav-link">Início</a>
+        <a href="sobre.html" class="nav-link">Sobre</a>
+        <a href="contato.html" class="nav-link">Contato</a>
+    </nav>
+
+    <!-- Banner -->
+    <header class="top-banner">
+        <h1>Como Ler Cifras de Violão</h1>
+    </header>
+
+    <!-- Container Principal -->
+    <main class="container">
+        <section class="intro info-box">
+            <p>Se você está começando a tocar violão, aprender a ler cifras é uma das primeiras coisas importantes. Cifras são uma forma simples de mostrar quais acordes você deve tocar em uma música.</p>
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnNEl0FJlT-zjz0CiJVxy4xHGmKQEXRoiMlw&s" alt="Violão clássico" class="intro-img" />
+        </section>
+
+        <section class="info-box">
+            <h2>O que são cifras?</h2>
+            <p>As cifras são símbolos que indicam os acordes que você deve tocar. Cada letra representa um acorde específico.</p>
+            <ul>
+                <li><b>C</b> = Dó maior</li>
+                <li><b>G</b> = Sol maior</li>
+                <li><b>Am</b> = Lá menor</li>
+                <li><b>D</b> = Ré maior</li>
+                <li><b>Em</b> = Mi menor</li>
+                <li><b>F</b> = Fá maior</li>
+            </ul>
+        </section>
+
+        <section class="info-box">
+            <h2>Como ler uma cifra?</h2>
+            <p>Normalmente, as cifras ficam acima da letra da música. Você deve tocar o acorde indicado quando chegar naquela palavra.</p>
+            <div class="cifra-exemplo">
+                <span class="acorde">G</span> <span class="acorde">D</span><br>
+                Hoje o céu está tão lindo<br>
+                <span class="acorde">Em</span> <span class="acorde">C</span><br>
+                Vai chover ou vai fazer sol
+            </div>
+        </section>
+
+        <section class="info-box">
+            <h2>Dicas para tocar violão com cifras</h2>
+            <ul>
+                <li>Comece aprendendo os acordes básicos: C, G, D, Em, Am, F.</li>
+                <li>Pratique trocar de um acorde para outro lentamente até pegar o ritmo.</li>
+                <li>Use um metrônomo para ajudar a manter o tempo.</li>
+                <li>Toque músicas simples no começo para ganhar confiança.</li>
+                <li>Observe a posição dos dedos no braço do violão e pratique a digitação dos acordes.</li>
+            </ul>
+        </section>
+
+        <section class="info-box">
+            <h2>Exemplo prático</h2>
+            <p>Veja abaixo um pequeno trecho de música com cifras para praticar:</p>
+            <div class="cifra-exemplo">
+                <span class="acorde">C</span> <span class="acorde">G</span><br>
+                Eu gosto de tocar<br>
+                <span class="acorde">Am</span> <span class="acorde">F</span><br>
+                Com o coração aberto
+            </div>
+        </section>
+
+        <section class="info-box">
+            <h2>Como tocar os acordes básicos</h2>
+            <p>Para cada cifra, há uma posição de dedos diferente. Por exemplo:</p>
+            <ul>
+                <li><b>C (Dó maior):</b> Posicione o dedo indicador na primeira casa da segunda corda, o dedo médio na segunda casa da quarta corda, e o dedo anelar na terceira casa da quinta corda.</li>
+                <li><b>G (Sol maior):</b> Dedo médio na terceira casa da sexta corda, dedo indicador na segunda casa da quinta corda, dedo anelar na terceira casa da primeira corda.</li>
+                <li><b>Am (Lá menor):</b> Dedo indicador na primeira casa da segunda corda, dedo médio na segunda casa da quarta corda, dedo anelar na segunda casa da terceira corda.</li>
+            </ul>
+            <p>Praticar as posições dos dedos é essencial para tocar com fluidez.</p>
+        </section>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        &copy; 2025 Como Ler Cifras de Violão — Todos os direitos preservados.
+        <div class="privacy">Suas informações estão protegidas e respeitamos sua privacidade.</div>
+    </footer>
+</body>
+</html>
+
