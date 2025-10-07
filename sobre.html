@@ -5,12 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Sobre - Como Ler Cifras de Violão</title>
   <style>
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -43,9 +38,7 @@
       padding: 8px 20px;
       border-radius: 50px;
       transition: background-color 0.3s, color 0.3s, transform 0.2s;
-      position: relative;
     }
-
     .nav-link:hover {
       background-color: #ffdd57;
       color: #6a0dad;
@@ -74,9 +67,7 @@
       background-color: rgba(106, 13, 173, 0.6);
       mix-blend-mode: multiply;
       z-index: 0;
-      transition: background-color 0.3s ease;
     }
-
     .top-banner h1 {
       color: #fff;
       font-size: 3rem;
@@ -85,14 +76,9 @@
       padding: 0 20px;
       z-index: 1;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-      user-select: none;
     }
 
-    .container {
-      max-width: 900px;
-      margin: 0 auto;
-      flex-grow: 1;
-    }
+    .container { max-width: 900px; margin: 0 auto; flex-grow: 1; }
 
     .info-box {
       background: #fff;
@@ -102,11 +88,7 @@
       margin-bottom: 35px;
       transition: transform 0.3s ease;
     }
-
-    .info-box:hover {
-      transform: translateY(-5px);
-    }
-
+    .info-box:hover { transform: translateY(-5px); }
     .info-box h2 {
       color: #6a0dad;
       font-size: 1.9rem;
@@ -115,14 +97,9 @@
       border-bottom: 3px solid #ffdd57;
       padding-bottom: 8px;
       max-width: fit-content;
-      box-shadow: 0 4px 10px rgba(255, 221, 87, 0.6);
       border-radius: 8px;
     }
-
-    .info-box p {
-      font-size: 1.15rem;
-      color: #444;
-    }
+    .info-box p { font-size: 1.15rem; color: #444; }
 
     footer {
       margin-top: 50px;
@@ -132,15 +109,28 @@
       font-size: 1rem;
       font-weight: 600;
       border-top: 2px solid #6a0dad;
-      letter-spacing: 0.05em;
-      user-select: none;
     }
 
-    @media (max-width: 900px) {
-      .container {
-        padding: 0 15px;
-      }
+    /* Menu de acessibilidade */
+    .accessibility-menu {
+      position: fixed; bottom: 20px; right: 20px; z-index: 1000;
     }
+    .accessibility-btn {
+      background: #005bbb; color: #fff;
+      border-radius: 50%; width: 60px; height: 60px;
+      font-size: 28px; display: flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+    }
+    .accessibility-options {
+      display: none; flex-direction: column; margin-bottom: 10px;
+    }
+    .accessibility-options button {
+      margin: 5px 0; padding: 10px;
+      border-radius: 8px; border: none; cursor: pointer;
+      font-size: 14px; background: #6a0dad; color: #fff;
+    }
+
+    .high-contrast { background: #000 !important; color: #fff !important; }
   </style>
 </head>
 <body>
@@ -180,7 +170,65 @@
   <footer>
     <p>&copy; 2025 Tocando acordes, aprendendo com paixão. 🎶</p>
   </footer>
+
+  <!-- Menu de acessibilidade -->
+  <div class="accessibility-menu">
+    <div class="accessibility-options" id="options">
+      <button onclick="toggleReadSite()">🔊 Ler site</button>
+      <button onclick="increaseFont()">🔎 Aumentar fonte</button>
+      <button onclick="decreaseFont()">🔍 Diminuir fonte</button>
+      <button onclick="toggleContrast()">🌙 Alto contraste</button>
+      <button onclick="highlightLinks()">🔗 Destacar links</button>
+      <button onclick="resetLinks()">❌ Resetar links</button>
+    </div>
+    <button class="accessibility-btn" onclick="toggleMenu()">♿</button>
+  </div>
+
+  <!-- VLibras com bonequinho -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+    let isReading = false, utterance;
+
+    function toggleMenu() {
+      const options = document.getElementById("options");
+      options.style.display = options.style.display === "flex" ? "none" : "flex";
+    }
+
+    function toggleReadSite() {
+      if (!isReading) {
+        const text = document.body.innerText;
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "pt-BR";
+        speechSynthesis.speak(utterance);
+        isReading = true;
+      } else {
+        speechSynthesis.cancel();
+        isReading = false;
+      }
+    }
+
+    function increaseFont() { document.body.style.fontSize = "larger"; }
+    function decreaseFont() { document.body.style.fontSize = "smaller"; }
+    function toggleContrast() { document.body.classList.toggle("high-contrast"); }
+
+    function highlightLinks() {
+      document.querySelectorAll("a").forEach(link => {
+        link.style.background = "yellow"; link.style.color = "black";
+      });
+    }
+    function resetLinks() {
+      document.querySelectorAll("a").forEach(link => {
+        link.style.background = "none"; link.style.color = "";
+      });
+    }
+  </script>
 </body>
 </html>
-
-
