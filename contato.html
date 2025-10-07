@@ -1,15 +1,11 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contato - Como Ler Cifras de Violão</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -22,6 +18,19 @@
       flex-direction: column;
     }
 
+    /* Link de pular conteúdo (skip link) */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: #6a0dad;
+      color: #fff;
+      padding: 8px;
+      z-index: 100;
+      transition: top 0.3s;
+    }
+    .skip-link:focus { top: 10px; }
+
     .navbar {
       background: #6a0dad;
       display: flex;
@@ -29,7 +38,6 @@
       gap: 30px;
       padding: 15px 0;
       border-radius: 12px;
-      box-shadow: 0 4px 8px rgba(106, 13, 173, 0.4);
       margin-bottom: 30px;
       flex-wrap: wrap;
     }
@@ -41,28 +49,25 @@
       font-weight: 700;
       padding: 8px 20px;
       border-radius: 50px;
-      transition: background-color 0.3s, color 0.3s, transform 0.2s;
+      transition: all 0.3s;
     }
 
-    .nav-link:hover {
+    .nav-link:hover,
+    .nav-link:focus {
       background-color: #ffdd57;
       color: #6a0dad;
-      transform: scale(1.1);
+      outline: 2px solid #ffdd57;
     }
 
     .top-banner {
-      position: relative;
-      background-image: url('https://www.coa.com.br/wp-content/uploads/2019/06/si%CC%81ndrome-da-visa%CC%83o-do-computador.jpg');
-      background-size: cover;
-      background-position: center 63%;
+      background: url('https://www.coa.com.br/wp-content/uploads/2019/06/si%CC%81ndrome-da-visa%CC%83o-do-computador.jpg') center/cover;
       height: 250px;
       border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
       margin-bottom: 40px;
-      box-shadow: 0 8px 15px rgba(0,0,0,0.25);
-      overflow: hidden;
+      position: relative;
     }
 
     .top-banner::before {
@@ -70,8 +75,6 @@
       position: absolute;
       inset: 0;
       background-color: rgba(106, 13, 173, 0.6);
-      mix-blend-mode: multiply;
-      z-index: 0;
     }
 
     .top-banner h1 {
@@ -79,16 +82,11 @@
       font-size: 3rem;
       font-weight: 900;
       text-align: center;
-      padding: 0 20px;
       z-index: 1;
       text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
     }
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-      flex-grow: 1;
-    }
+    .container { max-width: 800px; margin: 0 auto; flex-grow: 1; }
 
     .form-box {
       background: #fff;
@@ -97,26 +95,16 @@
       box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     }
 
-    .form-box h2 {
-      color: #6a0dad;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      text-align: center;
-    }
+    .form-box h2 { color: #6a0dad; text-align: center; margin-bottom: 20px; }
 
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+    form { display: flex; flex-direction: column; }
 
-    label {
-      font-weight: 600;
-      margin-bottom: 8px;
-      color: #444;
-    }
+    fieldset { border: none; margin-bottom: 20px; }
+    legend { font-weight: bold; margin-bottom: 10px; }
 
-    input,
-    textarea {
+    label { font-weight: 600; margin-bottom: 8px; }
+
+    input, textarea {
       padding: 12px;
       margin-bottom: 20px;
       border: 2px solid #ccc;
@@ -124,48 +112,53 @@
       font-size: 1rem;
     }
 
-    input:focus,
-    textarea:focus {
+    input:focus, textarea:focus {
       border-color: #6a0dad;
-      outline: none;
+      outline: 2px solid #6a0dad;
     }
 
     button {
-      background-color: #6a0dad;
+      background: #6a0dad;
       color: #fff;
       padding: 12px;
       font-size: 1.1rem;
       border: none;
       border-radius: 8px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background 0.3s;
     }
 
-    button:hover {
-      background-color: #500c9e;
+    button:hover, button:focus { background: #500c9e; }
+
+    footer { margin-top: 40px; text-align: center; font-size: 0.9rem; }
+
+    /* Menu de acessibilidade */
+    .accessibility-menu {
+      position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+    }
+    .accessibility-btn {
+      background: #005bbb; color: #fff;
+      border-radius: 50%; width: 60px; height: 60px;
+      font-size: 28px; display: flex; align-items: center; justify-content: center;
+      border: none; cursor: pointer;
+    }
+    .accessibility-options {
+      display: none; flex-direction: column; margin-bottom: 10px;
+    }
+    .accessibility-options button {
+      margin: 5px 0; padding: 10px;
+      border-radius: 8px; border: none; cursor: pointer;
+      font-size: 14px; background: #6a0dad; color: #fff;
     }
 
-    footer {
-      margin-top: 40px;
-      text-align: center;
-      font-size: 0.9rem;
-      color: #555;
-    }
-
-    @media (max-width: 600px) {
-      .top-banner h1 {
-        font-size: 2rem;
-      }
-
-      .nav-link {
-        font-size: 1rem;
-      }
-    }
+    .high-contrast { background: #000 !important; color: #fff !important; }
   </style>
 </head>
 <body>
+  <!-- Link para pular direto ao conteúdo -->
+  <a href="#conteudo" class="skip-link">Pular para o conteúdo</a>
 
-  <nav class="navbar">
+  <nav class="navbar" aria-label="Menu principal">
     <a href="index.html" class="nav-link">Início</a>
     <a href="sobre.html" class="nav-link">Sobre</a>
     <a href="contato.html" class="nav-link">Contato</a>
@@ -175,30 +168,93 @@
     <h1>Fale Conosco</h1>
   </header>
 
-  <main class="container">
+  <main class="container" id="conteudo">
     <section class="form-box">
       <h2>Envie sua mensagem</h2>
-      <form action="mailto:seuemail@exemplo.com" method="POST" enctype="text/plain">
-        <label for="nome">Nome:</label>
-        <input type="text" id="nome" name="nome" required />
+      <form action="https://formspree.io/f/seu-endereco" method="POST" aria-live="polite">
+        <fieldset>
+          <legend>Seus dados</legend>
+          <label for="nome">Nome:</label>
+          <input type="text" id="nome" name="nome" required />
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required />
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" required />
+        </fieldset>
 
-        <label for="mensagem">Mensagem:</label>
-        <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        <fieldset>
+          <legend>Sua mensagem</legend>
+          <label for="mensagem">Mensagem:</label>
+          <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
+        </fieldset>
 
-        <button type="submit">Enviar</button>
+        <button type="submit">📨 Enviar mensagem</button>
       </form>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2025 Aprenda Violão — Levamos a sério sua privacidade e a segurança dos seus dados.</p>
+    <p>&copy; 2025 Aprenda Violão — Acessibilidade é prioridade.</p>
   </footer>
 
+  <!-- Menu de acessibilidade -->
+  <div class="accessibility-menu">
+    <div class="accessibility-options" id="options">
+      <button onclick="toggleReadSite()">🔊 Ler site</button>
+      <button onclick="increaseFont()">🔎 Aumentar fonte</button>
+      <button onclick="decreaseFont()">🔍 Diminuir fonte</button>
+      <button onclick="toggleContrast()">🌙 Alto contraste</button>
+      <button onclick="highlightLinks()">🔗 Destacar links</button>
+      <button onclick="resetLinks()">❌ Resetar links</button>
+    </div>
+    <button class="accessibility-btn" onclick="toggleMenu()">♿</button>
+  </div>
+
+  <!-- VLibras com bonequinho -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+    let isReading = false, utterance;
+
+    function toggleMenu() {
+      const options = document.getElementById("options");
+      options.style.display = options.style.display === "flex" ? "none" : "flex";
+    }
+
+    function toggleReadSite() {
+      if (!isReading) {
+        const text = document.body.innerText;
+        utterance = new SpeechSynthesisUtterance(text);
+        utterance.lang = "pt-BR";
+        speechSynthesis.speak(utterance);
+        isReading = true;
+      } else {
+        speechSynthesis.cancel();
+        isReading = false;
+      }
+    }
+
+    function increaseFont() { document.body.style.fontSize = "larger"; }
+    function decreaseFont() { document.body.style.fontSize = "smaller"; }
+    function toggleContrast() { document.body.classList.toggle("high-contrast"); }
+
+    function highlightLinks() {
+      document.querySelectorAll("a").forEach(link => {
+        link.style.background = "yellow"; link.style.color = "black";
+      });
+    }
+    function resetLinks() {
+      document.querySelectorAll("a").forEach(link => {
+        link.style.background = "none"; link.style.color = "";
+      });
+    }
+  </script>
 </body>
 </html>
-
-     
 
