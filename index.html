@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Início - Como Ler Cifras de Violão</title>
+  <title>Sobre - Como Ler Cifras de Violão</title>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -38,32 +38,16 @@
       padding: 8px 20px;
       border-radius: 50px;
       transition: background-color 0.3s, color 0.3s, transform 0.2s;
-      position: relative;
     }
-
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -5px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 0;
-      height: 3px;
-      background-color: #ffdd57;
-      border-radius: 2px;
-      transition: width 0.3s;
-    }
-
     .nav-link:hover {
       background-color: #ffdd57;
       color: #6a0dad;
       transform: scale(1.1);
     }
-    .nav-link:hover::after { width: 60%; }
 
     .top-banner {
       position: relative;
-      background-image: url('https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=1350&q=80');
+      background-image: url('https://images.unsplash.com/photo-1507838153414-b4b713384a76?auto=format&fit=crop&w=1350&q=80');
       background-size: cover;
       background-position: center;
       height: 280px;
@@ -75,6 +59,7 @@
       box-shadow: 0 8px 15px rgba(0,0,0,0.25);
       overflow: hidden;
     }
+
     .top-banner::before {
       content: '';
       position: absolute;
@@ -112,45 +97,24 @@
       border-bottom: 3px solid #ffdd57;
       padding-bottom: 8px;
       max-width: fit-content;
-      box-shadow: 0 4px 10px rgba(255, 221, 87, 0.6);
       border-radius: 8px;
     }
-    .info-box p, .intro p { font-size: 1.15rem; margin-bottom: 18px; color: #444; }
-
-    ul { margin-left: 25px; margin-bottom: 18px; list-style: inside disc; color: #555; font-weight: 600; font-size: 1.1rem; }
-    ul li { margin-bottom: 10px; transition: color 0.3s ease; }
-    ul li:hover { color: #6a0dad; }
-
-    .intro { display: flex; align-items: center; gap: 30px; margin-bottom: 40px; flex-wrap: wrap; }
-    .intro p { flex: 1 1 350px; }
-    .intro-img {
-      flex: 1 1 350px; max-width: 100%; border-radius: 20px;
-      box-shadow: 0 12px 22px rgba(106, 13, 173, 0.3);
-      transition: transform 0.4s ease; cursor: pointer;
-    }
-    .intro-img:hover { transform: scale(1.05) rotate(2deg); box-shadow: 0 16px 28px rgba(106, 13, 173, 0.6); }
-
-    .cifra-exemplo {
-      background-color: #fefefe;
-      border: 3px solid #6a0dad;
-      border-radius: 18px;
-      padding: 20px 30px;
-      font-family: 'Courier New', Courier, monospace;
-      font-size: 1.3rem; color: #6a0dad;
-      box-shadow: 0 8px 15px rgba(106, 13, 173, 0.25);
-      white-space: pre-wrap;
-    }
-    .acorde { font-weight: 900; }
+    .info-box p { font-size: 1.15rem; color: #444; }
 
     footer {
-      margin-top: 50px; padding: 15px 0;
-      text-align: center; color: #555; font-size: 1rem; font-weight: 600;
+      margin-top: 50px;
+      padding: 15px 0;
+      text-align: center;
+      color: #555;
+      font-size: 1rem;
+      font-weight: 600;
       border-top: 2px solid #6a0dad;
     }
-    .privacy { margin-top: 15px; font-size: 0.9rem; color: #888; text-align: center; font-style: italic; }
 
-    /* Menu acessibilidade */
-    .accessibility-menu { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+    /* Menu de acessibilidade */
+    .accessibility-menu {
+      position: fixed; bottom: 20px; right: 20px; z-index: 1000;
+    }
     .accessibility-btn {
       background: #005bbb; color: #fff;
       border-radius: 50%; width: 60px; height: 60px;
@@ -161,9 +125,11 @@
       display: none; flex-direction: column; margin-bottom: 10px;
     }
     .accessibility-options button {
-      margin: 5px 0; padding: 10px; border-radius: 8px; border: none;
-      cursor: pointer; font-size: 14px; background: #6a0dad; color: #fff;
+      margin: 5px 0; padding: 10px;
+      border-radius: 8px; border: none; cursor: pointer;
+      font-size: 14px; background: #6a0dad; color: #fff;
     }
+
     .high-contrast { background: #000 !important; color: #fff !important; }
   </style>
 </head>
@@ -175,17 +141,34 @@
   </nav>
 
   <header class="top-banner">
-    <h1>Como Ler Cifras de Violão</h1>
+    <h1>Sobre o Projeto</h1>
   </header>
 
   <main class="container">
-    <!-- Conteúdo igual ao que você já tinha -->
-    <!-- ... (mantive igual para não cortar aqui, mas todo o conteúdo de dicas, cifras e exemplos continua o mesmo) -->
+    <section class="info-box">
+      <h2>Quem Somos</h2>
+      <p>
+        Este site foi criado para ajudar iniciantes a aprender a ler cifras de violão de forma simples e prática. Nosso objetivo é tornar o aprendizado acessível e divertido para todos que amam música.
+      </p>
+    </section>
+
+    <section class="info-box">
+      <h2>Nossa Missão</h2>
+      <p>
+        Promover a educação musical oferecendo conteúdos de qualidade, exemplos práticos e dicas para facilitar o entendimento e a prática do violão.
+      </p>
+    </section>
+
+    <section class="info-box">
+      <h2>Por que aprender cifras?</h2>
+      <p>
+        Ler cifras permite que você toque inúmeras músicas sem a necessidade de aprender partituras complexas, facilitando a sua jornada musical.
+      </p>
+    </section>
   </main>
 
   <footer>
-    &copy; 2025 Como Ler Cifras de Violão — Todos os direitos preservados.
-    <div class="privacy">Suas informações estão protegidas e respeitamos sua privacidade.</div>
+    <p>&copy; 2025 Tocando acordes, aprendendo com paixão. 🎶</p>
   </footer>
 
   <!-- Menu de acessibilidade -->
@@ -211,6 +194,7 @@
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
+
     let isReading = false, utterance;
 
     function toggleMenu() {
@@ -248,4 +232,3 @@
   </script>
 </body>
 </html>
-
